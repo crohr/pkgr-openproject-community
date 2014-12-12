@@ -1,0 +1,67 @@
+<%#-- copyright
+OpenProject Costs Plugin
+
+Copyright (C) 2009 - 2014 the OpenProject Foundation (OPF)
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+version 3.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+++#%>
+
+<%= render :partial => 'shared/costs_header' %>
+<% content_for :action_menu_specific do %>
+  <%= link_to l(:button_add_cost_type), new_cost_type_path, :class => 'icon icon-add' %>
+<% end %>
+
+<% html_title l(:cost_types_title) %>
+
+<h2><%= CostType.model_name.human(:count => 2) %></h2>
+
+<%= render :partial => 'layouts/action_menu_specific' %>
+
+<%= form_tag(cost_types_path, { :method => :get, :id => 'query_form' }) do %>
+  <fieldset id="filters">
+    <legend><%= l(:label_filter_plural) %></legend>
+    <p>
+      <label for="fixed_date"><%= l(:label_fixed_date) %></label>
+      <%= text_field_tag :fixed_date, @fixed_date, :size => 10 %><%= calendar_for('fixed_date') %>
+    </p>
+<p>
+  <%= check_box_tag :include_deleted, "1", @include_deleted, :autocomplete => "off" %>
+  <label for="include_deleted"><%= l(:caption_show_locked) %></label>
+</p>
+</fieldset>
+<p class="buttons">
+<%= link_to_remote l(:button_apply),
+                   { :update => "content",
+                     :with => "Form.serialize('query_form')",
+                     :method => :get
+                   }, :class => 'icon icon-yes' %>
+
+<%= link_to_remote l(:button_clear),
+                   { :url => { :clear_filter => true },
+                     :method => :get,
+                     :update => "content",
+                   }, :class => 'icon icon-reload1' %>
+</p>
+<% end %>
+
+<div id="cost_type_flash_notice_outer" style="display:none">
+<div class="flash notice" id="cost_type_flash_notice"><%= l(:notice_successful_update) %></div>
+</div>
+<%= render :partial => 'list' %>
+
+<% if @include_deleted %>
+  <h3><%= l(:label_deleted_cost_types) %></h3>
+  <%= render :partial => 'list_deleted' %>
+<% end %>

@@ -1,0 +1,78 @@
+<%#-- copyright
+OpenProject Costs Plugin
+
+Copyright (C) 2009 - 2014 the OpenProject Foundation (OPF)
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+version 3.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+++#%>
+
+<%= render :partial => 'shared/costs_header' %>
+<h2><%= l(:label_log_costs) %></h2>
+
+<% url = @cost_entry.new_record? ?
+          { :action => 'create', :project_id => @project.id } :
+          { :action => 'update', :id => @cost_entry } %>
+
+<% method = @cost_entry.new_record? ?
+            :post :
+            :put %>
+
+<%= labelled_tabular_form_for @cost_entry, :url => url, :html => { :method => method } do |f| %>
+    <%= error_messages_for 'cost_entry' %>
+    <%= back_url_hidden_field_tag %>
+
+    <div class="box">
+    <p><%= f.text_field :work_package_id, :size => 6, :required => true %> <em><%= h("#{@cost_entry.work_package.to_s}") if @cost_entry.work_package%></em></p>
+    <p><%= f.text_field :spent_on, :size => 10, :required => true %><%= calendar_for('cost_entry_spent_on') %></p>
+    <% if User.current.allowed_to? :log_costs, @project %>
+      <p><%= f.select :user_id, user_collection_for_select_options, :required => true %></p>
+    <% else %>
+      <%= f.hidden_field :user_id, :value => User.current.id %>
+    <% end %>
+    <p><%= f.select :cost_type_id, cost_types_collection_for_select_options, :required => true %></p>
+    <p>
+        <%= f.text_field :units, :size => 6, :required => true %>
+        <span id="cost_entry_unit_name"><%= (@cost_entry.units == 1 ? @cost_entry.cost_type.unit : @cost_entry.cost_type.unit_plural) if @cost_entry.cost_type %></span>
+        <%= observe_field( "cost_entry_cost_type_id", :url => {:controller => :cost_objects, :action => :update_material_budget_item, :project_id => @cost_entry.project}, :with => "'cost_type_id=' + encodeURIComponent(value) + '&units=' + encodeURIComponent(document.getElementById('cost_entry_units').value) + '&fixed_date=' + encodeURIComponent(document.getElementById('cost_entry_spent_on').value) + '&element_id=cost_entry'") %>
+        <%= observe_field( "cost_entry_units", :frequency => 1, :url => {:controller => :cost_objects, :action => :update_material_budget_item, :project_id => @cost_entry.project}, :with => "'cost_type_id=' + encodeURIComponent(document.getElementById('cost_entry_cost_type_id').value) + '&units=' + encodeURIComponent(value) + '&fixed_date=' + encodeURIComponent(document.getElementById('cost_entry_spent_on').value) + '&element_id=cost_entry'") %>
+        <%= observe_field( "cost_entry_spent_on", :frequency => 1, :url => {:controller => :cost_objects, :action => :update_material_budget_item, :project_id => @cost_entry.project}, :with => "'cost_type_id=' + encodeURIComponent(document.getElementById('cost_entry_cost_type_id').value) + '&units=' + encodeURIComponent(document.getElementById('cost_entry_units').value) + '&fixed_date=' + encodeURIComponent(value) + '&element_id=cost_entry'") %>
+  </p>
+    <p>
+      <label for="cost_entry_costs_edit"><%= CostEntry.human_attribute_name(:costs) %></label>
+      <% if User.current.allowed_to? :view_cost_rates, @cost_entry.project %>
+        <a href="javascript:;" id="cost_entry_costs" class="icon-context icon-edit" title="<%= l(:help_click_to_edit) %>">
+          <%= number_to_currency(@cost_entry.calculated_costs) %>
+        </a>
+        <%= update_page_tag do |page|
+          page << "makeEditable('cost_entry_costs', 'cost_entry[overridden_costs]');"
+          page << "edit($('cost_entry_costs'), 'cost_entry[overridden_costs]', '#{number_to_currency(@cost_entry.overridden_costs)}');" if @cost_entry.overridden_costs
+        end %>
+      <% else %>
+        <span id="cost_entry_costs_editor">
+          <input class="currency" value="<%= number_to_currency(@cost_entry.overridden_costs, :unit => "").strip if @cost_entry.overridden_costs %>" size="7" name="cost_entry[overridden_costs]" id="cost_entry_costs_edit"/> <%= Setting.plugin_openproject_costs['costs_currency'] %>
+        </span>
+        <br /><em><%= l(:help_override_rate) %></em>
+      <% end %>
+
+    </p>
+    <p><%= f.text_field :comments, :size => 100 %></p>
+    </div>
+
+    <%= submit_tag l(:button_save) %>
+<% end %>
+
+<% content_for :header_tags do %>
+  <%= javascript_tag "initialize_editinplace('src=\"#{asset_path('webalys/cancel.png')}\" value=\"#{l(:label_cancel)}\" alt=\"#{l(:button_cancel_edit_costs)}\" title=\"#{l(:button_cancel_edit_costs)}\"' )" %>
+<% end %>

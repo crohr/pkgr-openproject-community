@@ -1,0 +1,24 @@
+CORE_VERSION = "release/3.0"
+
+# plugin development dependencies start
+  gem "pdf-inspector", "~>1.0.0", :group => [:development, :test]
+# plugin development dependencies end
+
+group :test do
+  gem 'rspec-steps', '~> 0.4.0'
+end
+
+
+
+group :opf_plugins do
+ gem "openproject-plugins", path: "vendored-plugins/openproject-plugins"
+ gem "openproject-costs", path: "vendored-plugins/openproject-costs"
+ gem "openproject-global_roles", path: "vendored-plugins/openproject-global_roles"
+ gem "openproject-help_link", path: "vendored-plugins/openproject-help_link"
+ gem "openproject-meeting", path: "vendored-plugins/openproject-meeting"
+ gem "openproject-my_project_page", path: "vendored-plugins/openproject-my_project_page"
+ gem "openproject-pdf_export", path: "vendored-plugins/openproject-pdf_export"
+ gem "openproject-documents", path: "vendored-plugins/openproject-documents"
+ gem "reporting_engine", path: "vendored-plugins/reporting_engine"
+ gem "openproject-backlogs", path: "vendored-plugins/openproject-backlogs"
+end
