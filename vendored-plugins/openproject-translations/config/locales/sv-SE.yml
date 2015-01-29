@@ -242,8 +242,8 @@ sv-SE:
       template:
         body: 'Kontrollera följande fält:'
         header:
-          one: Ett fel hindrade %{model} från att sparas
-          other: "%{count} fel hindrade %{model} från att sparas"
+          one: Ett fel hindrade denna %{model} från att sparas
+          other: "%{count} fel hindrade denna %{model} från att sparas"
     models:
       attachment: Fil
       board: Forum
@@ -438,38 +438,38 @@ sv-SE:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: ungefär 1 timme
+        one: ungefär en timme
         other: ungefär %{count} timmar
       about_x_months:
-        one: ungefär 1 månad
+        one: ungefär en månad
         other: ungefär %{count} månader
       about_x_years:
-        one: ungefär 1 år
+        one: ungefär ett år
         other: ungefär %{count} år
       almost_x_years:
-        one: nästan 1 år
+        one: nästan ett år
         other: nästan %{count} år
       half_a_minute: en halv minut
       less_than_x_minutes:
         one: mindre än en minut
         other: mindre än %{count} minuter
       less_than_x_seconds:
-        one: mindre än 1 sekund
+        one: mindre än en sekund
         other: mindre än %{count} sekunder
       over_x_years:
-        one: "över 1 år"
+        one: "över ett år"
         other: "över %{count} år"
       x_days:
-        one: 1 dag
+        one: en dag
         other: "%{count} dagar"
       x_minutes:
-        one: 1 minut
+        one: en minut
         other: "%{count} minuter"
       x_months:
-        one: 1 månad
+        one: en månad
         other: "%{count} månader"
       x_seconds:
-        one: 1 sekund
+        one: en sekund
         other: "%{count} sekunder"
     units:
       hour:
@@ -608,7 +608,7 @@ sv-SE:
   general_text_yes: ja
   general_text_No: Nej
   general_text_Yes: Ja
-  gui_validation_error: 1 fel
+  gui_validation_error: ett fel
   gui_validation_error_plural: "%{count} fel"
   instructions_after_registration: Du kan logga in så snart ditt konto har aktiverats
     genom att klicka på %{signin}.
@@ -1024,23 +1024,23 @@ sv-SE:
   label_workflow_plural: Arbetsflöden
   label_workflow_summary: Sammanfattning
   label_x_closed_work_packages_abbr:
-    one: 1 stängt
+    one: ett stängt
     other: "%{count} stängda"
     zero: 0 closed
   label_x_comments:
-    one: 1 kommentar
+    one: en kommentar
     other: "%{count} kommentarer"
     zero: no comments
   label_x_open_work_packages_abbr:
-    one: 1 öppen
+    one: ett öppet
     other: "%{count} öppna"
     zero: 0 open
   label_x_open_work_packages_abbr_on_total:
-    one: 1 öppen / %{total}
+    one: ett öppet / %{total}
     other: "%{count} öppna / %{total}"
     zero: 0 open / %{total}
   label_x_projects:
-    one: 1 projekt
+    one: ett projekt
     other: "%{count} projekt"
     zero: no projects
   label_year: "År"
@@ -1484,7 +1484,7 @@ sv-SE:
     delete_thing: Ta bort
     duration: Varaktighet
     duration_days:
-      one: 1 dag
+      one: en dag
       other: "%{count} dagar"
     edit_color: Redigera färg
     edit_project_type: Redigera projekttyp

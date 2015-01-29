@@ -6,7 +6,6 @@ CORE_VERSION='release/4.0'
 
 
 group :opf_plugins do
- gem "openproject-plugins", path: "vendored-plugins/openproject-plugins"
  gem "openproject-costs", path: "vendored-plugins/openproject-costs"
  gem "openproject-global_roles", path: "vendored-plugins/openproject-global_roles"
  gem "openproject-help_link", path: "vendored-plugins/openproject-help_link"

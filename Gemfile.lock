@@ -61,7 +61,7 @@ GIT
 PATH
   remote: vendored-plugins/openproject-backlogs
   specs:
-    openproject-backlogs (4.0.5)
+    openproject-backlogs (4.0.6)
       acts_as_silent_list
       openproject-pdf_export
       rails (~> 3.2.9)
@@ -69,56 +69,50 @@ PATH
 PATH
   remote: vendored-plugins/openproject-costs
   specs:
-    openproject-costs (4.0.5)
+    openproject-costs (4.0.6)
       rails (~> 3.2.9)
 
 PATH
   remote: vendored-plugins/openproject-documents
   specs:
-    openproject-documents (4.0.5)
+    openproject-documents (4.0.6)
       rails (~> 3.2.9)
 
 PATH
   remote: vendored-plugins/openproject-global_roles
   specs:
-    openproject-global_roles (4.0.5)
+    openproject-global_roles (4.0.6)
       rails (~> 3.2.9)
 
 PATH
   remote: vendored-plugins/openproject-help_link
   specs:
-    openproject-help_link (4.0.5)
+    openproject-help_link (4.0.6)
       rails (~> 3.2.12)
 
 PATH
   remote: vendored-plugins/openproject-meeting
   specs:
-    openproject-meeting (4.0.5)
+    openproject-meeting (4.0.6)
       rails (~> 3.2.9)
 
 PATH
   remote: vendored-plugins/openproject-my_project_page
   specs:
-    openproject-my_project_page (4.0.5)
+    openproject-my_project_page (4.0.6)
       rails (~> 3.2.9)
 
 PATH
   remote: vendored-plugins/openproject-pdf_export
   specs:
-    openproject-pdf_export (4.0.5)
+    openproject-pdf_export (4.0.6)
       prawn (~> 0.14.0)
       rails (~> 3.2.14)
 
 PATH
-  remote: vendored-plugins/openproject-plugins
-  specs:
-    openproject-plugins (4.0.5)
-      rails (~> 3.2.9)
-
-PATH
   remote: vendored-plugins/openproject-translations
   specs:
-    openproject-translations (4.0.5)
+    openproject-translations (4.0.6)
       crowdin-api (~> 0.2.4)
       rails (~> 3.2.14)
       rubyzip
@@ -564,7 +558,6 @@ DEPENDENCIES
   openproject-meeting!
   openproject-my_project_page!
   openproject-pdf_export!
-  openproject-plugins!
   openproject-translations!
   pdf-inspector (~> 1.0.0)
   pg (~> 0.17.1)
