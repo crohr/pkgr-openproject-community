@@ -14,6 +14,7 @@ group :opf_plugins do
  gem "openproject-pdf_export", path: "vendored-plugins/openproject-pdf_export"
  gem "openproject-documents", path: "vendored-plugins/openproject-documents"
  gem "reporting_engine", path: "vendored-plugins/reporting_engine"
+ gem "openproject-reporting", path: "vendored-plugins/openproject-reporting"
  gem "openproject-backlogs", path: "vendored-plugins/openproject-backlogs"
  gem "openproject-translations", path: "vendored-plugins/openproject-translations"
 end

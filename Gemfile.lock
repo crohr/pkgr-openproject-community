@@ -110,6 +110,14 @@ PATH
       rails (~> 3.2.14)
 
 PATH
+  remote: vendored-plugins/openproject-reporting
+  specs:
+    openproject-reporting (4.0.6)
+      openproject-costs (>= 4.0.0)
+      rails (~> 3.2.9)
+      reporting_engine (>= 1.0.0)
+
+PATH
   remote: vendored-plugins/openproject-translations
   specs:
     openproject-translations (4.0.6)
@@ -558,6 +566,7 @@ DEPENDENCIES
   openproject-meeting!
   openproject-my_project_page!
   openproject-pdf_export!
+  openproject-reporting!
   openproject-translations!
   pdf-inspector (~> 1.0.0)
   pg (~> 0.17.1)
