@@ -242,8 +242,8 @@ sv-SE:
       template:
         body: 'Kontrollera följande fält:'
         header:
-          one: Ett fel hindrade denna %{model} från att sparas
-          other: "%{count} fel hindrade denna %{model} från att sparas"
+          one: Ett fel hindrade %{model} från att sparas
+          other: "%{count} fel hindrade %{model} från att sparas"
     models:
       attachment: Fil
       board: Forum
@@ -438,38 +438,38 @@ sv-SE:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: ungefär en timme
+        one: ungefär 1 timme
         other: ungefär %{count} timmar
       about_x_months:
-        one: ungefär en månad
+        one: ungefär 1 månad
         other: ungefär %{count} månader
       about_x_years:
-        one: ungefär ett år
+        one: ungefär 1 år
         other: ungefär %{count} år
       almost_x_years:
-        one: nästan ett år
+        one: nästan 1 år
         other: nästan %{count} år
       half_a_minute: en halv minut
       less_than_x_minutes:
         one: mindre än en minut
         other: mindre än %{count} minuter
       less_than_x_seconds:
-        one: mindre än en sekund
+        one: mindre än 1 sekund
         other: mindre än %{count} sekunder
       over_x_years:
-        one: "över ett år"
+        one: "över 1 år"
         other: "över %{count} år"
       x_days:
-        one: en dag
+        one: 1 dag
         other: "%{count} dagar"
       x_minutes:
-        one: en minut
+        one: 1 minut
         other: "%{count} minuter"
       x_months:
-        one: en månad
+        one: 1 månad
         other: "%{count} månader"
       x_seconds:
-        one: en sekund
+        one: 1 sekund
         other: "%{count} sekunder"
     units:
       hour:
@@ -1024,23 +1024,23 @@ sv-SE:
   label_workflow_plural: Arbetsflöden
   label_workflow_summary: Sammanfattning
   label_x_closed_work_packages_abbr:
-    one: ett stängt
+    one: 1 stängd
     other: "%{count} stängda"
     zero: 0 closed
   label_x_comments:
-    one: en kommentar
+    one: 1 kommentar
     other: "%{count} kommentarer"
     zero: no comments
   label_x_open_work_packages_abbr:
-    one: ett öppet
+    one: 1 öppen
     other: "%{count} öppna"
     zero: 0 open
   label_x_open_work_packages_abbr_on_total:
-    one: ett öppet / %{total}
+    one: 1 öppen / %{total}
     other: "%{count} öppna / %{total}"
     zero: 0 open / %{total}
   label_x_projects:
-    one: ett projekt
+    one: 1 projekt
     other: "%{count} projekt"
     zero: no projects
   label_year: "År"
@@ -1484,7 +1484,7 @@ sv-SE:
     delete_thing: Ta bort
     duration: Varaktighet
     duration_days:
-      one: en dag
+      one: 1 dag
       other: "%{count} dagar"
     edit_color: Redigera färg
     edit_project_type: Redigera projekttyp

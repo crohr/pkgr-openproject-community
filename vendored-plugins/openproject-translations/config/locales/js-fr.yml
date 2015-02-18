@@ -178,7 +178,7 @@ fr:
     select2:
       input_too_short:
         one: Veuillez entrer un caractère de plus
-        other: Veuillez entrer encore {{count}} caractères
+        other: Veuillez entrer encore {{count}} autres caractères
         zero: Please enter more characters
       load_more: Chargement de plus de résultats ...
       no_matches: Pas de correspondances trouvées
